@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "echo 'DO NOT FORGET TO FIX PATH OF index.html!!!' & vite build",
+    "build": "vite build --base=./",
     "preview": "vite preview"
   },
   "devDependencies": {
