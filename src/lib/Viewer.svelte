@@ -23,6 +23,8 @@
     let brightnessScale; // maxBrightnessを基準にした255に対する倍率
     let magicNum, width, height, maxBrightness;
 
+    let tmp;
+
     function addRect(x, y, r, g, b) {
         canvasCtx.fillStyle = `rgb(${r} ${g} ${b})`;
         canvasCtx.fillRect(x, y, 1, 1);
@@ -45,7 +47,14 @@
 
         for (let y = 0; y < height; ++y) {
             for (let x = 0; x < width; ++x) {
-                if(!data[index]){
+                /*
+                * viteの不具合(?)が原因で，
+                * if(!data[index]){ ... return; }
+                * だといきなりif内が実行されてreturnするため，
+                * 一回tmpに代入してからifで評価するとうまくいく
+                */
+                tmp = !data[index];
+                if(tmp){
                     message = "ラスターデータが欠けています";
                     return;
                 }
@@ -62,7 +71,8 @@
 
         for (let y = 0; y < height; ++y) {
             for (let x = 0; x < width; ++x) {
-                if(!data[index]){
+                tmp = !data[index];
+                if(tmp){
                     message = "ラスターデータが欠けています";
                     return;
                 }
@@ -79,7 +89,8 @@
 
         for (let y = 0; y < height; ++y) {
             for (let x = 0; x < width; ++x) {
-                if(!data[index]){
+                tmp = !data[index];
+                if(tmp){
                     message = "ラスターデータが欠けています";
                     return;
                 }

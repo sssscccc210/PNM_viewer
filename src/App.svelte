@@ -42,4 +42,5 @@
     </tr>
   </table>
   <p>◎忘れてる仕様がある，仕様に従っていない部分がある，などの場合はご連絡ください。</p>
+  <p style="text-align: right;">Version 1.0.1</p>
 </main>
